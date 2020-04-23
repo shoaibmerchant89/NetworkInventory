@@ -10,10 +10,10 @@ class HardwareBhsAdmin(admin.ModelAdmin):
     list_per_page = 25
 
 class HardwarePsirtAdmin(admin.ModelAdmin):
-    # list_display = ('id', 'hardware_model', 'cve_id', 'published_date')
-    # list_display_links = ('id', 'hardware_model', 'cve_id')
-    # list_filter = ('hardware_model', 'cve_id')
-    # search_fields = ('hardware_model',)
+    list_display = ('id', 'hardware_model', 'cve_id', 'published_date')
+    list_display_links = ('id', 'hardware_model', 'cve_id')
+    list_filter = ('hardware_model', 'cve_id')
+    search_fields = ('hardware_model',)
     list_per_page = 25
 
 class SoftwareBhsAdmin(admin.ModelAdmin):

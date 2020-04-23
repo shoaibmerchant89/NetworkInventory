@@ -26,12 +26,12 @@ class HardwareBhs(models.Model):
         verbose_name_plural = "Hardware BHS"
 
 class HardwarePsirt(models.Model):
-    # id = models.AutoField
-    # hardware_model = models.ForeignKey(HardwareBhs, on_delete=models.PROTECT, related_name='hardwaremodel_psirt', verbose_name='Hardware Model')
-    # cve_id = models.CharField(max_length=20, verbose_name='CVE ID')
-    # published_date = models.DateTimeField(max_length=20, verbose_name='Published On')
-    # def __str__(self):
-    #     return self.hardware_model.hardware_model
+    id = models.AutoField
+    hardware_model = models.ForeignKey(HardwareBhs, on_delete=models.PROTECT, related_name='hardwaremodel_psirt', verbose_name='Hardware Model')
+    cve_id = models.CharField(max_length=20, verbose_name='CVE ID')
+    published_date = models.DateTimeField(max_length=20, verbose_name='Published On')
+    def __str__(self):
+        return self.hardware_model.hardware_model
     # def __unicode__(self):
     #     return u'' + self.hardware_model
     class Meta:
