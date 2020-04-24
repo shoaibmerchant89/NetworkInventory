@@ -25,9 +25,21 @@ class HardwareBhs(models.Model):
     class Meta:
         verbose_name_plural = "Hardware BHS"
 
+# class HardwarePsirt(models.Model):
+#     id = models.AutoField
+#     hardware_model = models.ForeignKey(HardwareBhs, on_delete=models.PROTECT, related_name='hardwaremodel_psirt', verbose_name='Hardware Model')
+#     cve_id = models.CharField(max_length=20, verbose_name='CVE ID')
+#     published_date = models.DateTimeField(max_length=20, verbose_name='Published On')
+#     def __str__(self):
+#         return self.hardware_model.hardware_model
+#     # def __unicode__(self):
+#     #     return u'' + self.hardware_model
+#     class Meta:
+#         verbose_name_plural = "Hardware PSIRT"
+
 class HardwarePsirt(models.Model):
     id = models.AutoField
-    hardware_model = models.ForeignKey(HardwareBhs, on_delete=models.PROTECT, related_name='hardwaremodel_psirt', verbose_name='Hardware Model')
+    hardware_model = models.ForeignKey(HardwareBhs, on_delete=models.PROTECT, verbose_name='Hardware Model')
     cve_id = models.CharField(max_length=20, verbose_name='CVE ID')
     published_date = models.DateTimeField(max_length=20, verbose_name='Published On')
     def __str__(self):
@@ -36,6 +48,7 @@ class HardwarePsirt(models.Model):
     #     return u'' + self.hardware_model
     class Meta:
         verbose_name_plural = "Hardware PSIRT"
+
 
 class SoftwareBhs(models.Model):
     def get_next():
@@ -49,6 +62,10 @@ class SoftwareBhs(models.Model):
         ('Sell', 'Sell')
     ]
     software_bhs_status = models.CharField(max_length=5, choices=choices, verbose_name='Software BHS')
+
+    def __str__(self):
+        return self.os_version
+
     class Meta:
         verbose_name_plural = "Software BHS"
 
@@ -59,6 +76,9 @@ class SoftwarePsirt(models.Model):
     published_date = models.DateTimeField(max_length=20, verbose_name='Published On')
     class Meta:
         verbose_name_plural = "Software PSIRT"
+
+    def __str__(self):
+        return self.os_version.os_version
 
 class Emp(models.Model):
     hardware_model = models.ForeignKey(HardwareBhs, on_delete=models.PROTECT)
