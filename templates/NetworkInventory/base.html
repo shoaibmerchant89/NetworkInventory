@@ -1,12 +1,27 @@
 {# tutorial/templates/tutorial/people.html #}
 {% load render_table from django_tables2 %}
-<!doctype html>
-<html>
+{% load export_url from django_tables2 %}
+{% load querystring from django_tables2 %}
+
     <head>
         <title>Network Inventory</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
-        {% render_table table %}
+    <a href="{% querystring '_export'='csv' %}" class="btn btn-sm btn-success">CSV<span class="glyphicon glyphicon-arrow-down"></span>{{ format }}</a>
+    <a href="{% querystring '_export'='xlsx' %}" class="btn btn-sm btn-success">XLSX<span class="glyphicon glyphicon-arrow-down"></span>{{ format }}</a>
+    <a href="{% querystring '_export'='json' %}" class="btn btn-sm btn-success">JSON<span class="glyphicon glyphicon-arrow-down"></span>{{ format }}</a>
+{#    {% for format in IndexTable.export_formats %}#}
+{#    <a href="{{ querystring }} '_export'={{ format }}" class="btn btn-sm btn-success">#}
+{#        <span class="glyphicon glyphicon-arrow-down"></span>{{ format }}</a>#}
+{#    {% endfor %}#}
+{#    {% for format in IndexTable.export_formats %}#}
+{#    <a href="{% querystring '_export'= format %}" class="btn btn-sm btn-success">#}
+{#        <span class="glyphicon glyphicon-arrow-down"></span>{{ format }}</a>#}
+{#    {% endfor %}#}
+
+    {% render_table table %}
     </body>
 </html>
+
+{#    <a href="{{ export_url "csv" }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-arrow-down"></span> CSV</a>#}

@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'netadmin.apps.NetadminConfig',
     'django_tables2',
     # 'tutorial.apps.TutorialConfig',
-    'inventory.apps.InventoryConfig'
+    'inventory.apps.InventoryConfig',
+    'django_filters',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
