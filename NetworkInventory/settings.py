@@ -22,11 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=f5l_k5f@4y11m32v2uc9@r@h^r+!5)2_=snforsbqp(1r3$t4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [
-    '192.168.0.91'
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -82,23 +80,23 @@ WSGI_APPLICATION = 'NetworkInventory.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'NetworkInventory',
-        'USER': 'postgres',
-        'PASSWORD': 'Labrat@123',
-        'HOST': '192.168.0.91',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'NetworkInventory',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Labrat@123',
+#         'HOST': '192.168.0.91',
+#         'PORT': '5432'
+#     }
+# }
 
 
 

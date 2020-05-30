@@ -6,6 +6,7 @@ from .models import Netrequest
 from .tables import IndexTable
 from django_tables2 import SingleTableView
 from django_tables2.export.views import ExportMixin
+from django.views.generic import TemplateView
 
 from django_filters.views import FilterView
 from django_tables2.views import SingleTableMixin
@@ -15,11 +16,17 @@ from django_tables2.views import SingleTableMixin
 # class IndexListView(ListView):
 #     model = Index
 #     template_name = 'NetworkInventory/base.html'
+class homeView(TemplateView):
+    template_name = 'base.html'
 
-class IndexListView(ExportMixin,SingleTableView):
-    model = Index
-    table_class = IndexTable
-    template_name = 'NetworkInventory/base.html'
+    def get_context_data(self, **kwargs):
+        context = {'context': 'context is being rendered!'}
+        return context
+
+# class IndexListView(ExportMixin,SingleTableView):
+#     model = Index
+#     table_class = IndexTable
+#     template_name = 'NetworkInventory/base.html'
 
 # class FilteredPersonListView(SingleTableMixin, FilterView):
 #     table_class = IndexTable
