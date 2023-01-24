@@ -1,4 +1,4 @@
-ansible==2.9.6
+ansible==7.0.0
 asgiref==3.2.7
 bootstrap4==0.1.0
 asn1crypto==0.24.0
